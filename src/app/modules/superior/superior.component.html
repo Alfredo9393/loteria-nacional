@@ -1,0 +1,385 @@
+
+<br>
+<br>
+<!-- <app-title-h2 [text] ="'Grupos'" ></app-title-h2> -->
+  <div class="superior">
+    <div class="col-lg-12"></div>
+    <mat-tab-group dynamicHeight mat-align-tabs="center">
+      <mat-tab label="Lista de sorteos" style="color: white;">
+      
+        <div class="row">
+          <div class="col-9">
+            
+            otros
+          
+          </div>
+    
+          <div class="col-12">
+            
+            <table 
+            mat-table 
+            [dataSource]="dataSource" 
+            matSort (matSortChange)="announceSortChange($event)"
+            matSortActive="numero"
+            matSortDirection="desc" 
+            matSortDisableClear
+            class="mat-elevation-z8"
+            >
+        
+          
+            <ng-container matColumnDef="fecha" > 
+              <th  mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by fecha" >
+              fecha
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.fecha | date}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="numero">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by numero">
+              numero
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.numero}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="primero">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by primero">
+                #1
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.primero}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="segundo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by segundo">
+                #2
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.segundo}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="tercero">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by tercero">
+                #3
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.tercero}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="cuarto">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by cuarto">
+                #4
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.cuarto}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="quinto">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by quinto">
+                #5
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.quinto}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="sexto">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by sexto">
+                #6
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.sexto}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="septimo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by septimo">
+                #7
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.septimo}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="octavo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by octavo">
+                #8
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.octavo}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="noveno">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by noveno">
+                #9
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.noveno}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="decimo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by decimo">
+                #10
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.decimo}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="undecimo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by undecimo">
+                #11
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.undecimo}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="duodecimo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by duodecimo">
+                #12
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.duodecimo}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="decimotercero">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by decimotercero">
+                #13
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.decimotercero}} </td>
+            </ng-container>
+            <ng-container matColumnDef="decimocuarto">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by decimocuarto">
+                  #14
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.decimocuarto}} </td>
+              </ng-container>
+              <ng-container matColumnDef="decimoquinto">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by decimoquinto">
+                  #15
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.decimoquinto}} </td>
+              </ng-container>
+              <ng-container matColumnDef="decimosexto">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by decimosexto">
+                  #16
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.decimosexto}} </td>
+              </ng-container>
+              <ng-container matColumnDef="decimoseptimo">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by decimoseptimo">
+                  #17
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.decimoseptimo}} </td>
+              </ng-container>
+              <ng-container matColumnDef="decimoctavo">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by decimoctavo">
+                  #18
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.decimoctavo}} </td>
+              </ng-container>
+              <ng-container matColumnDef="decimonoveno">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by decimonoveno">
+                  #19
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.decimonoveno}} </td>
+              </ng-container>
+              <ng-container matColumnDef="vigesimo">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by vigesimo">
+                  #20
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.vigesimo}} </td>
+              </ng-container>
+          
+            <ng-container matColumnDef="liga">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by liga">
+                link
+              </th>
+              <td mat-cell  *matCellDef="let element"> 
+                <a  href="https://www.nacionalloteria.com/mexico/sorteo-superior.php?del-dia={{element.fecha}}">resultado {{element.fecha}}</a>
+              </td>
+            </ng-container>
+    
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          
+          </div>
+    
+    
+          <!-- conteo de numeros que incian en 0,1,2,3,4,5 -->
+    
+    
+          <div class="col-4">
+    
+      
+    
+
+    
+          <br>
+          <br>
+    
+
+    
+        
+         
+    
+          </div>
+        </div>
+    
+        
+    
+    
+     
+      
+      </mat-tab>
+      
+      <mat-tab label="Analisis numeros ganadores">
+
+        <div class="row">
+          <div class="col">
+
+            <div class="d-flex justify-content-center">
+              <h3 class='mb-3' style="color: white; margin:auto"> Numero 1er Lugar </h3>
+            </div>
+
+            <table 
+            mat-table 
+            [dataSource]="dataSource" 
+            matSort (matSortChange)="announceSortChange($event)"
+            matSortActive="numero"
+            matSortDirection="desc" 
+            matSortDisableClear
+            class="mat-elevation-z8"
+            >
+      
+      
+            <ng-container matColumnDef="numero">
+              <th cmat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by numero">
+                numero
+              </th>
+              <td  mat-cell *matCellDef="let element"  > {{element.numero}} </td>
+            </ng-container>
+      
+            <ng-container matColumnDef="cero">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by primero">
+                0xxxx
+              </th>
+              <td mat-cell *matCellDef="let element" style="max-height:10px;" [ngStyle]="{'background-color': (element.primero != undefined && element.primero.charAt(0) == '0') ? '#DAF7A6':''}"> {{element.primero}} </td>
+            </ng-container>
+             
+            <ng-container matColumnDef="uno">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by primero">
+                1xxxx
+              </th>
+              <td mat-cell *matCellDef="let element" style="max-height:10px;" [ngStyle]="{'background-color': (element.primero != undefined && element.primero.charAt(0) == '1') ? '#33B8FF':''}" > {{element.primero}} </td>
+            </ng-container>
+      
+            <ng-container matColumnDef="dos">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by primero">
+                2xxxx
+              </th>
+              <td mat-cell *matCellDef="let element" style="max-height:10px;" [ngStyle]="{'background-color': (element.primero != undefined && element.primero.charAt(0) == '2') ? '#33FFE3':''}" > {{element.primero}} </td>
+            </ng-container>
+      
+            <ng-container matColumnDef="tres">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by primero">
+                3xxxx
+              </th>
+              <td mat-cell *matCellDef="let element" style="max-height:10px;" [ngStyle]="{'background-color': (element.primero != undefined && element.primero.charAt(0) == '3') ? '#FFBB33':''}" > {{element.primero}} </td>
+            </ng-container>
+      
+            <ng-container matColumnDef="cuatro">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by primero">
+                4xxxx
+              </th>
+              <td mat-cell *matCellDef="let element" style="max-height:10px;" [ngStyle]="{'background-color': (element.primero != undefined && element.primero.charAt(0) == '4') ? '#F7F309':''}" > {{element.primero}} </td>
+            </ng-container>
+      
+            <ng-container matColumnDef="cinco">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by primero">
+                5xxxx
+              </th>
+              <td mat-cell *matCellDef="let element" style="max-height:10px;" [ngStyle]="{'background-color': (element.primero != undefined && element.primero.charAt(0) == '5') ? '#F709D6':''}" > {{element.primero}} </td>
+            </ng-container>
+      
+          
+            <tr mat-header-row *matHeaderRowDef="columnsDist"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsDist;"></tr>
+          </table>
+          </div>
+
+          <div class="col">
+            <div class="d-flex justify-content-center">
+              <h3 class='mb-3' style="color: white; margin:auto"> Conteo de numero 1er Lugar </h3>
+            </div>
+
+
+              <table 
+              mat-table 
+              [dataSource]="dataSource3" 
+              matSort (matSortChange)="announceSortChange2($event)"
+              matSortActive="num"
+              matSortDirection="desc" 
+              matSortDisableClear
+              class="mat-elevation-z8"
+              >
+        
+        
+        
+              <ng-container matColumnDef="num">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by num">
+                  num
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.num}} </td>
+              </ng-container>
+        
+              <ng-container matColumnDef="cero">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by cero">
+                  0xxxx
+                </th>
+                <td mat-cell *matCellDef="let element" [ngStyle]="{'background-color': element.cero != '' ? '#DAF7A6':''}"> {{element.cero}} </td>
+              </ng-container>
+        
+              <ng-container matColumnDef="uno">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by uno">
+                  1xxxx
+                </th>
+                <td mat-cell *matCellDef="let element" [ngStyle]="{'background-color': element.uno != '' ? '#33B8FF':''}" > {{element.uno}} </td>
+              </ng-container>
+        
+              <ng-container matColumnDef="dos">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by dos">
+                  2xxxx
+                </th>
+                <td mat-cell *matCellDef="let element" [ngStyle]="{'background-color': element.dos != '' ? '#33FFE3':''}" > {{element.dos}} </td>
+              </ng-container>
+        
+              <ng-container matColumnDef="tres">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by tres">
+                  3xxxx
+                </th>
+                <td mat-cell *matCellDef="let element" [ngStyle]="{'background-color': element.tres != '' ? '#FFBB33':''}" > {{element.tres}} </td>
+              </ng-container>
+        
+              <ng-container matColumnDef="cuatro">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by cuatro">
+                  4xxxx
+                </th>
+                <td mat-cell *matCellDef="let element" [ngStyle]="{'background-color': element.cuatro != '' ? '#F7F309':''}" > {{element.cuatro}} </td>
+              </ng-container>
+        
+              <ng-container matColumnDef="cinco">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by cinco">
+                  5xxxx
+                </th>
+                <td mat-cell *matCellDef="let element" [ngStyle]="{'background-color': element.cinco != '' ? '#F709D6':''}"  > {{element.cinco}} </td>
+              </ng-container>
+              
+              
+        
+              <tr mat-header-row *matHeaderRowDef="columns3"></tr>
+              <tr mat-row *matRowDef="let row; columns: columns3;"></tr>
+            </table>
+          </div>
+
+          <div class="col">col</div>
+          <div class="col">col</div>
+        </div>
+
+      </mat-tab>
+      
+      <mat-tab label="Pendiente">Content 3</mat-tab>
+
+    </mat-tab-group>
+  
+
+
+  </div>
+
+  
+  

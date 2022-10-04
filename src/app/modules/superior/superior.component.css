@@ -1,0 +1,46 @@
+.superior{
+    background:rgb(33, 44, 61);
+    margin-top: 15px; 
+    margin-bottom: 15px;
+     margin-left: 0.5%;
+    margin-right: 0.5%; 
+}
+
+table {
+    width: 100%;
+  }
+  
+  tr.mat-row{
+    height: 10px  !important;
+  }
+
+  tr.mat-header-row{
+    height: 10px  !important;
+  }
+  
+  th{
+    background-color: #5DADE2;
+    color: azure;
+  }
+
+  nav {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 35px;
+    padding-top: 15px;
+    box-shadow: 0px 0px 8px 0px;
+    -webkit-box-shadow: 0px 0px 8px 0px;
+    -moz-box-shadow: 0px 0px 8px 0px;
+    background-color: gray;
+    width: 100%;
+    z-index: 100;
+    text-align: center;
+  }
+
+
+
+.mat-tab-label{
+    color:white;
+}

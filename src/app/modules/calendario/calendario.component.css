@@ -1,0 +1,15 @@
+.calendario{
+  background:rgb(33, 44, 61);
+  margin-top: 15px; 
+  margin-bottom: 15px;
+   margin-left: 0.5%;
+  margin-right: 0.5%; 
+}
+
+iframe {
+    display: block;       /* iframes are inline by default */
+    border: none;         /* Reset default border */
+    height: 100vh;        /* Viewport-relative units */
+    width: 100vw;
+  }
+  

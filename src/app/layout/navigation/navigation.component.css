@@ -1,0 +1,36 @@
+nav {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 35px;
+    padding-top: 15px;
+    box-shadow: 0px 0px 8px 0px;
+    -webkit-box-shadow: 0px 0px 8px 0px;
+    -moz-box-shadow: 0px 0px 8px 0px;
+    background-color: gray;
+    width: 100%;
+    z-index: 100;
+    text-align: center;
+  }
+  /* #ffffff */
+  /* .nav-link{
+    color: #ffc107;
+  } */
+
+  /* poner al selecionar */
+  /* #6ca7fd */
+
+
+  .nav-link:focus, .nav-link:hover{
+    color: #6ca7fd !important;
+  }
+
+  .navbar-nav > .active > a {
+    color: aqua;
+    background-color: chartreuse;    
+  }
+  .nav-item > a:hover {
+    color: aqua;
+  }
+  
