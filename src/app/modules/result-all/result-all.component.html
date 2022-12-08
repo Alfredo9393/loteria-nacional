@@ -21,7 +21,12 @@
           class="mat-elevation-z8"
           >
     
-    
+          <ng-container matColumnDef="fecha" > 
+            <th  mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by fecha" >
+            fecha
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.fecha | date}} </td>
+          </ng-container>
           <ng-container matColumnDef="numero">
             <th cmat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by numero">
               numero
@@ -93,7 +98,12 @@
           class="mat-elevation-z8"
           >
     
-    
+          <ng-container matColumnDef="fecha" > 
+            <th  mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by fecha" >
+            fecha
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.fecha | date}} </td>
+          </ng-container>
           <ng-container matColumnDef="numero">
             <th cmat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by numero">
               numero

@@ -6,6 +6,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { HttpClient } from '@angular/common/http'; 
 
 export interface Elementos {
+  // fecha: string;
   num: number;
   cero: string;
   uno: string;
@@ -90,7 +91,7 @@ export class ResultAllComponent implements AfterViewInit {
   dataFileMayor: ElementMayor[] = []; // datos del archivo 
   dataSourceMayor:any;// se setea a la tabla los datos del archivo 
 
-  columnaDefault: string[] = [ 'numero','cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco'];
+  columnaDefault: string[] = ['fecha', 'numero','cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco'];
   datosSuperior: Elementos[] = [];
   datosMayor: Elementos[] = [];
  
