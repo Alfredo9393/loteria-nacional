@@ -61,6 +61,12 @@ export interface ElementMayor {
   liga: string;  
 }
 
+export interface boletos {
+  fecha: string;
+  numero: number;
+  sorteo: string;
+  numeros: string;
+}
 
 
 @Component({
@@ -73,6 +79,7 @@ export class ResultAllComponent implements AfterViewInit {
   constructor(private _liveAnnouncer: LiveAnnouncer, private http: HttpClient) {
     this.loadDataMayor();
     this.loadDataSuperior();
+    this.loadDataBoletos();
 
   }
 
@@ -97,6 +104,11 @@ export class ResultAllComponent implements AfterViewInit {
  
 
   dataAux: any;
+
+  columnaBoletos: string[] = ['fecha', 'numero','sorteo', 'numeros'];
+  dataFileBoletos: boletos[] = []; // datos del archivo 
+  dataSourceBoletos:any; // se setea a la tabla los datos del archivo
+
 
   loadDataMayor(){
     this.http.get('assets/sorteo-mayor.txt', { responseType: 'text' as 'json'}).subscribe(data => {
@@ -138,53 +150,75 @@ export class ResultAllComponent implements AfterViewInit {
 
     loadDataSuperior(){
 
-      this.http.get('assets/sorteo-superior.txt', { responseType: 'text' as 'json'}).subscribe(data => {
-        this.dataAux = data;
-        for (const line of this.dataAux.split(/[\r\n]+/)){
-         var dataNoSpace= line.replace(/\s/g, "");
-         let splitted = dataNoSpace.split(",");  
+        this.http.get('assets/sorteo-superior.txt', { responseType: 'text' as 'json'}).subscribe(data => {
+          this.dataAux = data;
+          for (const line of this.dataAux.split(/[\r\n]+/)){
+          var dataNoSpace= line.replace(/\s/g, "");
+          let splitted = dataNoSpace.split(",");  
 
-         let row = {
-               fecha: splitted[0], 
-               numero: splitted[1] ,
-               primero: splitted[2],
-               segundo: splitted[3],
-               tercero: splitted[4],
-               cuarto: splitted[5],
-               quinto: splitted[6],
-               sexto: splitted[7],
-               septimo: splitted[8],
-               octavo: splitted[9],
-               noveno: splitted[10],
-               decimo: splitted[11],
-               undecimo: splitted[12],
-               duodecimo: splitted[13],
-               decimotercero: splitted[14],
-               decimocuarto: splitted[15],
-               decimoquinto: splitted[16],
-               decimosexto: splitted[17],
-               decimoseptimo: splitted[18],
-               decimoctavo: splitted[19],
-               decimonoveno: splitted[20],
-               vigesimo: splitted[21],
+          let row = {
+                fecha: splitted[0], 
+                numero: splitted[1] ,
+                primero: splitted[2],
+                segundo: splitted[3],
+                tercero: splitted[4],
+                cuarto: splitted[5],
+                quinto: splitted[6],
+                sexto: splitted[7],
+                septimo: splitted[8],
+                octavo: splitted[9],
+                noveno: splitted[10],
+                decimo: splitted[11],
+                undecimo: splitted[12],
+                duodecimo: splitted[13],
+                decimotercero: splitted[14],
+                decimocuarto: splitted[15],
+                decimoquinto: splitted[16],
+                decimosexto: splitted[17],
+                decimoseptimo: splitted[18],
+                decimoctavo: splitted[19],
+                decimonoveno: splitted[20],
+                vigesimo: splitted[21],
 
-               liga: "https://www.nacionalloteria.com/mexico/sorteo-mayor.php?del-dia="+splitted[0]
-         }
+                liga: "https://www.nacionalloteria.com/mexico/sorteo-mayor.php?del-dia="+splitted[0]
+          }
 
-         this.dataFileSuperior.push(row);
+          this.dataFileSuperior.push(row);
 
 
-         this.dataSourceSuperior = new MatTableDataSource<ElementSuperior>(this.dataFileSuperior);
-         this.dataSourceSuperior.sort = this.sort;
-       }
+          this.dataSourceSuperior = new MatTableDataSource<ElementSuperior>(this.dataFileSuperior);
+          this.dataSourceSuperior.sort = this.sort;
+        }
 
-      //  this.calculos(this.dataFileSuperior,false,true);
+        //  this.calculos(this.dataFileSuperior,false,true);
 
-     })
+      })
+    }
 
+
+    loadDataBoletos(){
+      this.http.get('assets/boletos.txt', { responseType: 'text' as 'json'}).subscribe(data => {
+          this.dataAux = data;
+         for (const line of this.dataAux.split(/[\r\n]+/)){
+          
+          var dataNoSpace= line.replace(/\s/g, "");
+          let splitted = dataNoSpace.split("|");  
+
+          let row = {
+                fecha: splitted[0], 
+                numero: splitted[1] ,
+                sorteo: splitted[2],
+                numeros: splitted[3]
+          }
+          this.dataFileBoletos.push(row);
+        }
+  
+        this.dataSourceBoletos = new MatTableDataSource<boletos>(this.dataFileBoletos);
+        this.dataSourceBoletos.sort = this.sort;
+  
+        })
   
       }
-
 
       calculos(dataDist:any,mayor:boolean,supeior:boolean){
         let arrayCero: string[] = new Array();

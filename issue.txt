@@ -1,0 +1,14 @@
+1- Error de angular material
+    Error: src/app/modules/table-products/table-products.component.html:24:42 - error NG8002: Can't bind to 'dataSource' since it isn't a known property of 'table'.
+    <table mat-table [dataSource]="dataSource" matSort>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~
+    src/app/modules/table-products/table-products.component.ts:56:16
+    templateUrl: './table-products.component.html',
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Error occurs in the template of component TableProductsComponent.
+
+
+2- Eroor de html 
+    ERROR Error: Unexpected synthetic property @transitionMessages found. Please make sure that:
+  - Either `BrowserAnimationsModule` or `NoopAnimationsModule` are imported in your application.
+  - There is corresponding configuration for the animation named `@transitionMessages` defined in the `animations` field of the `@Component` decorator (see https://angular.io/api/core/Component#animations)

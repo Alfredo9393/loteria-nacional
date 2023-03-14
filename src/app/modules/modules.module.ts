@@ -16,8 +16,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatIconModule} from '@angular/material/icon';
 import {ComponentModule} from '../component/component.module';
 import { CalendarioComponent } from './calendario/calendario.component';
-import {MaterialExampleModule} from '../../material.module';
+// import {MaterialExampleModule} from '../../material.module';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSortModule} from '@angular/material/sort';
 
 
 @NgModule({
@@ -43,8 +44,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     DragDropModule,
     MatCheckboxModule,
     MatIconModule,
-    MaterialExampleModule,
-    MatTabsModule
+    // MaterialExampleModule,
+    MatTabsModule,
+    MatSortModule
   ]
 }) 
 export class ModulesModule { }

@@ -23,7 +23,7 @@
     
           <ng-container matColumnDef="fecha" > 
             <th  mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by fecha" >
-            fecha
+              fecha_de_sorteo
             </th>
             <td mat-cell *matCellDef="let element"> {{element.fecha | date}} </td>
           </ng-container>
@@ -100,7 +100,7 @@
     
           <ng-container matColumnDef="fecha" > 
             <th  mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by fecha" >
-            fecha
+              fecha_de_sorteo
             </th>
             <td mat-cell *matCellDef="let element"> {{element.fecha | date}} </td>
           </ng-container>
@@ -162,7 +162,56 @@
 
 
       <div class="col">col</div>
-      <div class="col">col</div>
+
+      <div class="col">
+        <div class="d-flex justify-content-center">
+          <h2 class='mb-3' style="color: white; margin:auto"> numeros comprados</h2>
+        </div>
+
+          <table 
+          mat-table 
+          [dataSource]="dataSourceBoletos" 
+          matSort (matSortChange)="announceSortChange($event)"
+          matSortActive="numero"
+          matSortDirection="desc" 
+          matSortDisableClear
+          class="mat-elevation-z8"
+          >
+    
+          <ng-container matColumnDef="fecha" > 
+            <th  mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by fecha" >
+            fecha_de_sorteo
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.fecha | date}} </td>
+          </ng-container>
+          <ng-container matColumnDef="numero">
+            <th cmat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by numero">
+              numero
+            </th>
+            <td  mat-cell *matCellDef="let element"  > {{element.numero}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="sorteo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by sorteo">
+              nombre_sorteo
+            </th>
+            <td mat-cell *matCellDef="let element" style="max-height:10px;" [ngStyle]="{'background-color': (element.sorteo != undefined && element.sorteo == 'chihuahua') ? '#DAF7A6':''}"> {{element.sorteo}} </td>
+          </ng-container>
+          
+          <ng-container matColumnDef="numeros">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by numeros">
+              numeros
+            </th>
+            <td mat-cell *matCellDef="let element" style="max-height:10px;" > {{element.numeros}} </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="columnaBoletos"></tr>
+          <tr mat-row *matRowDef="let row; columns: columnaBoletos;"></tr>
+          
+        </table>
+      </div>
+
+
     </div>
 
 </div>
