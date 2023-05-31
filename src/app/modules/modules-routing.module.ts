@@ -7,6 +7,9 @@ import { ZodiacoComponent } from './zodiaco/zodiaco.component';
 import { ResultAllComponent } from './result-all/result-all.component';
 import { CalendarioComponent } from './calendario/calendario.component';
 
+import { ChihuahuaComponent } from './chihuahua/chihuahua.component';
+import { GuadalajaraComponent } from './guadalajara/guadalajara.component';
+
 const routes: Routes = [
   {
     path:"", 
@@ -25,6 +28,12 @@ const routes: Routes = [
   },{
     path:"calendario",
     component:CalendarioComponent
+  },{
+    path:"chihuahua",
+    component:ChihuahuaComponent
+  },{
+    path:"guadalajara",
+    component:GuadalajaraComponent
   }
 ];
 

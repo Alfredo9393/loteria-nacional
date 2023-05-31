@@ -61,12 +61,6 @@ export interface ElementMayor {
   liga: string;  
 }
 
-export interface boletos {
-  fecha: string;
-  numero: number;
-  sorteo: string;
-  numeros: string;
-}
 
 
 @Component({
@@ -79,7 +73,6 @@ export class ResultAllComponent implements AfterViewInit {
   constructor(private _liveAnnouncer: LiveAnnouncer, private http: HttpClient) {
     this.loadDataMayor();
     this.loadDataSuperior();
-    this.loadDataBoletos();
 
   }
 
@@ -105,9 +98,7 @@ export class ResultAllComponent implements AfterViewInit {
 
   dataAux: any;
 
-  columnaBoletos: string[] = ['fecha', 'numero','sorteo', 'numeros'];
-  dataFileBoletos: boletos[] = []; // datos del archivo 
-  dataSourceBoletos:any; // se setea a la tabla los datos del archivo
+
 
 
   loadDataMayor(){
@@ -196,29 +187,7 @@ export class ResultAllComponent implements AfterViewInit {
     }
 
 
-    loadDataBoletos(){
-      this.http.get('assets/boletos.txt', { responseType: 'text' as 'json'}).subscribe(data => {
-          this.dataAux = data;
-         for (const line of this.dataAux.split(/[\r\n]+/)){
-          
-          var dataNoSpace= line.replace(/\s/g, "");
-          let splitted = dataNoSpace.split("|");  
 
-          let row = {
-                fecha: splitted[0], 
-                numero: splitted[1] ,
-                sorteo: splitted[2],
-                numeros: splitted[3]
-          }
-          this.dataFileBoletos.push(row);
-        }
-  
-        this.dataSourceBoletos = new MatTableDataSource<boletos>(this.dataFileBoletos);
-        this.dataSourceBoletos.sort = this.sort;
-  
-        })
-  
-      }
 
       calculos(dataDist:any,mayor:boolean,supeior:boolean){
         let arrayCero: string[] = new Array();

@@ -12,6 +12,8 @@ export class NavigationComponent  {
   activeSuperior:boolean =false;
   activeZodiaco:boolean =false;
   activeCalendario:boolean =false;
+  activeChihuahua:boolean =false;
+  activeGuadalajara:boolean =false;
 
   constructor(private eRef: ElementRef) {
   }
@@ -37,9 +39,13 @@ export class NavigationComponent  {
       this.activeZodiaco = true;
     }else if (id=='calendario'){
       this.activeCalendario = true;
+    }else if (id=='chihuahua'){
+      this.activeChihuahua = true;
+    }else if (id=='guadalajara'){
+      this.activeGuadalajara = true;
     }
-
   }
+
 
 
 

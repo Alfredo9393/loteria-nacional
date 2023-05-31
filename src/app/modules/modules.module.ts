@@ -19,6 +19,8 @@ import { CalendarioComponent } from './calendario/calendario.component';
 // import {MaterialExampleModule} from '../../material.module';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSortModule} from '@angular/material/sort';
+import { ChihuahuaComponent } from './chihuahua/chihuahua.component';
+import { GuadalajaraComponent } from './guadalajara/guadalajara.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import {MatSortModule} from '@angular/material/sort';
      ResultAllComponent,
      MayorComponent,
      SuperiorComponent,
-    CalendarioComponent
+    CalendarioComponent,
+    ChihuahuaComponent,
+    GuadalajaraComponent
     // GroupsEmployeesComponent
   ],
   imports: [
