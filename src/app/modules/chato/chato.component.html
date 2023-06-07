@@ -1,0 +1,21 @@
+
+<div style="margin-top: 39px;"></div>
+<!-- <div class="fixed_header">
+    <div class="item1">
+        <button type="button" class="btn btn-primary btn-sm" >MAYOR  + SUPERIOR</button>
+    </div>
+    <div class="item2">
+        <button type="button" class="btn btn-warning btn-sm" >MAYOR</button>
+    </div>
+    <div class="item3">
+        <button type="button" class="btn btn-danger btn-sm" >SUPERIOR</button>
+    </div>
+
+</div> -->
+<h1 [ngStyle]="{'background-color':analizedColor}" style="margin: auto;text-align: center; margin-bottom: 30px">{{analized}}</h1>
+
+<div class="bod">
+    <div class="bod-item1"  *ngFor="let rw of cardData">
+        <button class="list_button" [ngStyle]="{'background-color':rw.color}" >{{rw.value}}</button>
+    </div>
+</div>

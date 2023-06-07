@@ -1,0 +1,39 @@
+
+<br>
+<br>
+<div>
+    <h1 [ngStyle]="{'background-color':analizedColor}" style="margin: auto;text-align: center; margin-bottom: 30px;margin-top: 10px;">{{analized}}</h1>
+
+    <h1 style="background-color: rgb(234, 245, 184);margin: auto;text-align: center;">chihuahua</h1>
+    <div class="bod">
+        <div class="bod-item1"  *ngFor="let rw of arrayDataChihuahua">
+            <button class="list_button" [ngStyle]="{'background-color':rw.color}" >{{rw.value}}</button>
+        </div>
+    </div>
+    
+    <h1 style="background-color: rgb(234, 245, 184);margin: auto;text-align: center;">chato</h1>
+    <div class="bod">
+        <div class="bod-item1"  *ngFor="let rw of arrayDataChato">
+            <button class="list_button" [ngStyle]="{'background-color':rw.color}" >{{rw.value}}</button>
+        </div>
+    </div>
+    
+    <h1 style="background-color: rgb(234, 245, 184);margin: auto;text-align: center;">Sonora</h1>
+    <div class="bod">
+        <div class="bod-item1"  *ngFor="let rw of arrayDataSonora">
+            <button class="list_button" [ngStyle]="{'background-color':rw.color}" >{{rw.value}}</button>
+        </div>
+    </div>
+    
+    <h1 style="background-color: rgb(234, 245, 184);margin: auto;text-align: center;">salazar</h1>
+    <div class="bod">
+        <div class="bod-item1"  *ngFor="let rw of arrayDataSalazar">
+            <button class="list_button" [ngStyle]="{'background-color':rw.color}" >{{rw.value}}</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+

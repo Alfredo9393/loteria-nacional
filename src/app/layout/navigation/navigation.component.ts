@@ -14,7 +14,10 @@ export class NavigationComponent  {
   activeCalendario:boolean =false;
   activeChihuahua:boolean =false;
   activeGuadalajara:boolean =false;
+  activeChato:boolean =false;
+  analizedgroup:boolean =false;
 
+  
   constructor(private eRef: ElementRef) {
   }
 

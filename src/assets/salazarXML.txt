@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div style="height: 479.844px; width: 1696px;">
+   <div style="position: absolute; left: 1325px; top: 407px; height: 37px; width: 53px;">
+      <button class="list__button" style="border-color: rgb(217, 56, 49); font-size: 14px;">54449</button>
+   </div>
+   <div style="position: absolute; left: 1378px; top: 407px; height: 37px; width: 53px;">
+      <button class="list__button" style="border-color: rgb(217, 56, 49); font-size: 14px;">58387</button>
+   </div>
+   <div style="position: absolute; left: 1431px; top: 407px; height: 37px; width: 53px;">
+      <button class="list__button" style="border-color: rgb(217, 56, 49); font-size: 14px;">58645</button>
+   </div>
+   <div style="position: absolute; left: 1484px; top: 407px; height: 37px; width: 53px;">
+      <button class="list__button" style="border-color: rgb(217, 56, 49); font-size: 14px;">29535</button>
+   </div>
+   <div style="position: absolute; left: 1537px; top: 407px; height: 37px; width: 53px;">
+      <button class="list__button" style="border-color: rgb(217, 56, 49); font-size: 14px;">59333</button>
+   </div>
+   <div style="position: absolute; left: 1590px; top: 407px; height: 37px; width: 53px;">
+      <button class="list__button" style="border-color: rgb(217, 56, 49); font-size: 14px;">59713</button>
+   </div>
+   <div style="position: absolute; left: 1643px; top: 407px; height: 37px; width: 53px;" />
+</div>

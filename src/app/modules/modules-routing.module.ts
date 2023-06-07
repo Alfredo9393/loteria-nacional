@@ -9,6 +9,9 @@ import { CalendarioComponent } from './calendario/calendario.component';
 
 import { ChihuahuaComponent } from './chihuahua/chihuahua.component';
 import { GuadalajaraComponent } from './guadalajara/guadalajara.component';
+import { ChatoComponent } from './chato/chato.component';
+import { CompareGroupComponent } from './analizer-group/compare-group/compare-group.component';
+
 
 const routes: Routes = [
   {
@@ -34,7 +37,14 @@ const routes: Routes = [
   },{
     path:"guadalajara",
     component:GuadalajaraComponent
+  },{
+    path:"chato",
+    component:ChatoComponent
+  },{
+    path:"analizedgroup",
+    component:CompareGroupComponent
   }
+  
 ];
 
 @NgModule({

@@ -21,6 +21,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatSortModule} from '@angular/material/sort';
 import { ChihuahuaComponent } from './chihuahua/chihuahua.component';
 import { GuadalajaraComponent } from './guadalajara/guadalajara.component';
+import { ChatoComponent } from './chato/chato.component';
+import { CompareGroupComponent } from './analizer-group/compare-group/compare-group.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { GuadalajaraComponent } from './guadalajara/guadalajara.component';
      SuperiorComponent,
     CalendarioComponent,
     ChihuahuaComponent,
-    GuadalajaraComponent
+    GuadalajaraComponent,
+    ChatoComponent,
+    CompareGroupComponent
     // GroupsEmployeesComponent
   ],
   imports: [
