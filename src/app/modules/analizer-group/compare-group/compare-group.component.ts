@@ -34,6 +34,9 @@ export class CompareGroupComponent implements OnInit {
     this.getIsLoadFinish()
   }
 
+  //pendiente
+  arrayDataHernandez:ElementB[] =[];
+  arrayDataCharco:ElementB[] =[];
 
 
   arrayDataSonora:ElementB[] =[];
