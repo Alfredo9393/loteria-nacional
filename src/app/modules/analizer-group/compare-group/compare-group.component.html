@@ -1,8 +1,42 @@
-
+<!-- *ngIf="" -->
 <br>
 <br>
 <div>
     <h1 [ngStyle]="{'background-color':analizedColor}" style="margin: auto;text-align: center; margin-bottom: 30px;margin-top: 10px;">{{analized}}</h1>
+
+    <div style="background-color: aliceblue;">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">numero</th>
+                <th scope="col">sonora</th>
+                <th scope="col">chato</th>
+                <th scope="col">chihuahua</th>
+                <th scope="col">salazar</th>
+                <th scope="col">ing</th>
+                <th scope="col">guadalajara</th>
+                <th scope="col">charco</th>
+                <th scope="col">hernandez</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let rw of arrayDuplicate" >
+                <ng-template [ngIf]="rw.duplicate"  >
+                    <td >{{rw.value}}</td>
+                    <td>{{rw.sonora}}</td>
+                    <td>{{rw.chato}}</td>
+                    <td>{{rw.chihuahua}}</td>
+                    <td>{{rw.salazar}}</td>
+                    <td>{{rw.ing}}</td>
+                    <td>{{rw.guadalajara}}</td>
+                    <td>{{rw.charco}}</td>
+                    <td>{{rw.hernandez}}</td>
+                </ng-template>
+
+              </tr>
+            </tbody>
+          </table>
+    </div>
 
     <h1 style="background-color: rgb(234, 245, 184);margin: auto;text-align: center;">chihuahua</h1>
     <div class="bod">
@@ -45,8 +79,18 @@
             <button class="list_button" [ngStyle]="{'background-color':rw.color}" >{{rw.value}}</button>
         </div>
     </div>
- 
-
+    <h1 style="background-color: rgb(234, 245, 184);margin: auto;text-align: center;">EL ING</h1>
+    <div class="bod">
+        <div class="bod-item1"  *ngFor="let rw of arrayDataIng">
+            <button class="list_button" [ngStyle]="{'background-color':rw.color}" >{{rw.value}}</button>
+        </div>
+    </div>
+    <h1 style="background-color: rgb(234, 245, 184);margin: auto;text-align: center;">Guadalajara</h1>
+    <div class="bod">
+        <div class="bod-item1"  *ngFor="let rw of arrayDataGuadalajara">
+            <button class="list_button" [ngStyle]="{'background-color':rw.color}" >{{rw.value}}</button>
+        </div>
+    </div>
 
 </div>
 
