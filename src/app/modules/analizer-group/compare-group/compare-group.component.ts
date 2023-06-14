@@ -17,9 +17,10 @@ export interface ElementC {
   guadalajara?:string;
   charco?:string;
   hernandez?:string;
+  black?:string;
+  tamaulipas?:string;
+
 }
-
-
 
 
 @Component({
@@ -40,9 +41,10 @@ export class CompareGroupComponent implements OnInit {
   completeSalazar:boolean =false;
   completeIng:boolean =false;
   completeGuadalajara:boolean =false;
-
-
-
+  completeCharco:boolean =false;
+  completeElBlack:boolean =false;
+  completeTamaulipas:boolean =false;
+  
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -52,13 +54,14 @@ export class CompareGroupComponent implements OnInit {
     this.getDataSalazar();
     this.getDataIng();
     this.getDataGuadalajara();
+    this.getDataCharco();
+    this.getDataBLack();
+    this.getDataTamaulipas();
     this.getIsLoadFinish()
   }
 
   //pendiente
   arrayDataHernandez:ElementB[] =[];
-  arrayDataCharco:ElementB[] =[];
-
 
   arrayDataSonora:ElementB[] =[];
   getDataSonora(){
@@ -87,7 +90,7 @@ export class CompareGroupComponent implements OnInit {
           for (const line of this.dataAux.split(/[\r\n]+/)){
 
             var dataNoSpace= line.replace(/\s/g, "");
-            if(dataNoSpace.indexOf("</button>")!= -1 ){
+            if(dataNoSpace.indexOf("</button>")!= -1 && dataNoSpace.indexOf("-</button>") == -1 ){
               var result = dataNoSpace.substring(dataNoSpace.indexOf("</button>")-5, dataNoSpace.indexOf("</button>"));
               this.arrayDataChato.push( { "value":result,"color":this.colorGlobal })
             }
@@ -119,7 +122,7 @@ export class CompareGroupComponent implements OnInit {
         this.dataAux = data;
           for (const line of this.dataAux.split(/[\r\n]+/)){
             var dataNoSpace= line.replace(/\s/g, "");
-            if(dataNoSpace.indexOf("</button>")!= -1 ){
+            if(dataNoSpace.indexOf("</button>")!= -1 && dataNoSpace.indexOf("-</button>") == -1 ){
               var result = dataNoSpace.substring(dataNoSpace.indexOf("</button>")-5, dataNoSpace.indexOf("</button>"));
               this.arrayDataSalazar.push( { "value":result,"color":this.colorGlobal })
             }
@@ -137,7 +140,7 @@ export class CompareGroupComponent implements OnInit {
             
             if(dataNoSpace.indexOf("</button>")!= -1 && dataNoSpace.indexOf("-</button>") == -1 ){
               var result = dataNoSpace.substring(dataNoSpace.indexOf("</button>")-5, dataNoSpace.indexOf("</button>"));
-              console.log("valid1: "+dataNoSpace.indexOf("</button>") + " valid2: "+ dataNoSpace.indexOf("-</button>") +" result:"+result)
+              // console.log("valid1: "+dataNoSpace.indexOf("</button>") + " valid2: "+ dataNoSpace.indexOf("-</button>") +" result:"+result)
 
               this.arrayDataIng.push( { "value":result,"color":this.colorGlobal })
             }
@@ -155,7 +158,7 @@ export class CompareGroupComponent implements OnInit {
             
             if(dataNoSpace.indexOf("</button>")!= -1 && dataNoSpace.indexOf("-</button>") == -1 ){
               var result = dataNoSpace.substring(dataNoSpace.indexOf("</button>")-5, dataNoSpace.indexOf("</button>"));
-              console.log("valid1: "+dataNoSpace.indexOf("</button>") + " valid2: "+ dataNoSpace.indexOf("-</button>") +" result:"+result)
+              // console.log("valid1: "+dataNoSpace.indexOf("</button>") + " valid2: "+ dataNoSpace.indexOf("-</button>") +" result:"+result)
 
               this.arrayDataGuadalajara.push( { "value":result,"color":this.colorGlobal })
             }
@@ -164,10 +167,61 @@ export class CompareGroupComponent implements OnInit {
       })
   }
 
+  arrayDataCharco:ElementB[] =[];
+  getDataCharco(){
+    this.http.get('assets/charcoXML.txt', { responseType: 'text' as 'json'}).subscribe(data => {
+        this.dataAux = data;
+          for (const line of this.dataAux.split(/[\r\n]+/)){
+            var dataNoSpace= line.replace(/\s/g, "");
+            
+            if(dataNoSpace.indexOf("</button>")!= -1 && dataNoSpace.indexOf("-</button>") == -1 ){
+              var result = dataNoSpace.substring(dataNoSpace.indexOf("</button>")-5, dataNoSpace.indexOf("</button>"));
+              // console.log("valid1: "+dataNoSpace.indexOf("</button>") + " valid2: "+ dataNoSpace.indexOf("-</button>") +" result:"+result)
 
-
+              this.arrayDataCharco.push( { "value":result,"color":this.colorGlobal })
+            }
+        }
+        this.completeCharco=true;
+      })
+  }
   
+  arrayDataBlack:ElementB[] =[];
+  getDataBLack(){
+    this.http.get('assets/elBlackXML.txt', { responseType: 'text' as 'json'}).subscribe(data => {
+        this.dataAux = data;
+          for (const line of this.dataAux.split(/[\r\n]+/)){
+            var dataNoSpace= line.replace(/\s/g, "");
+            
+            if(dataNoSpace.indexOf("</button>")!= -1 && dataNoSpace.indexOf("-</button>") == -1 ){
+              var result = dataNoSpace.substring(dataNoSpace.indexOf("</button>")-5, dataNoSpace.indexOf("</button>"));
+              console.log("valid1: "+dataNoSpace.indexOf("</button>") + " valid2: "+ dataNoSpace.indexOf("-</button>") +" result:"+result)
 
+              this.arrayDataBlack.push( { "value":result,"color":this.colorGlobal })
+            }
+        }
+        this.completeElBlack=true;
+      })
+  }
+
+  arrayDataTamaulipas:ElementB[] =[];
+  getDataTamaulipas(){
+    this.http.get('assets/tamaulipasXML.txt', { responseType: 'text' as 'json'}).subscribe(data => {
+        this.dataAux = data;
+          for (const line of this.dataAux.split(/[\r\n]+/)){
+            var dataNoSpace= line.replace(/\s/g, "");
+            
+            if(dataNoSpace.indexOf("</button>")!= -1 && dataNoSpace.indexOf("-</button>") == -1 ){
+              var result = dataNoSpace.substring(dataNoSpace.indexOf("</button>")-5, dataNoSpace.indexOf("</button>"));
+              console.log("valid1: "+dataNoSpace.indexOf("</button>") + " valid2: "+ dataNoSpace.indexOf("-</button>") +" result:"+result)
+
+              this.arrayDataTamaulipas.push( { "value":result,"color":this.colorGlobal })
+            }
+        }
+        this.completeTamaulipas=true;
+      })
+  }
+  
+  
 
   getIsLoadFinish(){
     let counter =50;
@@ -175,7 +229,8 @@ export class CompareGroupComponent implements OnInit {
       counter = counter - 1;
       console.log(counter)
       if((this.completeSonora && this.completeChato && this.completeChihuahua && this.completeSalazar 
-        && this.completeIng && this.completeChihuahua) || counter === 0){
+        && this.completeIng && this.completeChihuahua && this.completeCharco && this.completeElBlack 
+        && this.completeTamaulipas) || counter === 0){
         clearInterval(intervalId)
         this.getDataAnlized();
       }
@@ -196,6 +251,10 @@ export class CompareGroupComponent implements OnInit {
           this.searchSalazar(data1,"#AC58FA")
           this.searchIng(data1,"#F781F3")
           this.searchGuadalajara(data1,"#2E9AFE")
+          this.searchCharco(data1,"#a25e50")
+          this.searchBlack(data1," #65971d ")
+          this.searchTamaulipas(data1,"#4175a3")
+
         });
 
         //chato
@@ -207,6 +266,9 @@ export class CompareGroupComponent implements OnInit {
           this.searchSalazar(data1,"#AC58FA")
           this.searchIng(data1,"#F781F3")
           this.searchGuadalajara(data1,"#2E9AFE")
+          this.searchCharco(data1,"#a25e50")
+          this.searchBlack(data1,"#65971d")
+          this.searchTamaulipas(data1,"#4175a3")
 
         });
 
@@ -219,6 +281,10 @@ export class CompareGroupComponent implements OnInit {
           this.searchSalazar(data1,"#AC58FA")
           this.searchIng(data1,"#F781F3")
           this.searchGuadalajara(data1,"#2E9AFE")
+          this.searchCharco(data1,"#a25e50")
+          this.searchBlack(data1,"#65971d")
+          this.searchTamaulipas(data1,"#4175a3")
+
         });
 
         //salazar
@@ -230,6 +296,10 @@ export class CompareGroupComponent implements OnInit {
           // this.searchSalazar(data1,"#AC58FA")
           this.searchIng(data1,"#F781F3")
           this.searchGuadalajara(data1,"#2E9AFE")
+          this.searchCharco(data1,"#a25e50")
+          this.searchBlack(data1,"#65971d")
+          this.searchTamaulipas(data1,"#4175a3")
+
         });
 
         this.arrayDataIng.forEach((currentValue1, index) => {
@@ -240,6 +310,10 @@ export class CompareGroupComponent implements OnInit {
           this.searchSalazar(data1,"#AC58FA")
           // this.searchIng(data1,"#F781F3")
           this.searchGuadalajara(data1,"#2E9AFE")
+          this.searchCharco(data1,"#a25e50")
+          this.searchBlack(data1,"#65971d")
+          this.searchTamaulipas(data1,"#4175a3")
+
         });
 
         this.arrayDataGuadalajara.forEach((currentValue1, index) => {
@@ -250,7 +324,55 @@ export class CompareGroupComponent implements OnInit {
             this.searchSalazar(data1,"#AC58FA")
             this.searchIng(data1,"#F781F3")
             // this.searchGuadalajara(data1,"#2E9AFE")
+            this.searchCharco(data1,"#a25e50")
+            this.searchBlack(data1,"#65971d")
+            this.searchTamaulipas(data1,"#4175a3")
+
+
         });
+
+
+        this.arrayDataCharco.forEach((currentValue1, index) => {
+          let data1= currentValue1.value;
+          this.searchSonora(data1,"#F79F81")
+          this.searchChato(data1,"#F3F781")
+          this.searchChihuahua(data1,"#58FAD0")
+          this.searchSalazar(data1,"#AC58FA")
+          this.searchIng(data1,"#F781F3")
+          this.searchGuadalajara(data1,"#2E9AFE")
+          // this.searchCharco(data1,"#a25e50")
+          this.searchBlack(data1,"#65971d")
+          this.searchTamaulipas(data1,"#4175a3")
+
+
+      });
+
+
+      this.arrayDataBlack.forEach((currentValue1, index) => {
+        let data1= currentValue1.value;
+        this.searchSonora(data1,"#F79F81")
+        this.searchChato(data1,"#F3F781")
+        this.searchChihuahua(data1,"#58FAD0")
+        this.searchSalazar(data1,"#AC58FA")
+        this.searchIng(data1,"#F781F3")
+        this.searchGuadalajara(data1,"#2E9AFE")
+        this.searchCharco(data1,"#a25e50")
+        // this.searchBlack(data1," #65971d ")
+       });
+
+       this.arrayDataTamaulipas.forEach((currentValue1, index) => {
+        let data1= currentValue1.value;
+        this.searchSonora(data1,"#F79F81")
+        this.searchChato(data1,"#F3F781")
+        this.searchChihuahua(data1,"#58FAD0")
+        this.searchSalazar(data1,"#AC58FA")
+        this.searchIng(data1,"#F781F3")
+        this.searchGuadalajara(data1,"#2E9AFE")
+        this.searchCharco(data1,"#a25e50")
+        this.searchBlack(data1,"#65971d")
+        // this.searchTamaulipas(data1,"#4175a3")
+       });
+
 
         console.log("duplicados");
         console.log(this.arrayDuplicate);
@@ -353,12 +475,65 @@ export class CompareGroupComponent implements OnInit {
 
 
 
+
+  searchCharco(number:string,color:string): void{
+    let element = {
+      value: number,color:color,charco:"charco",
+    }
+    this.arrayDataCharco.forEach((currentValue, indexx) => {
+      if (currentValue.value ==number  ){
+        const i = this.arrayDuplicate.findIndex(_element => _element.value === number);
+        if (i > -1){
+          this.arrayDuplicate[i].charco = "charco"; 
+          this.arrayDuplicate[i].duplicate = true; 
+        }else 
+          this.arrayDuplicate.push(element)
+      }
+    });
+  }
+
+  searchBlack(number:string,color:string): void{
+    let element = {
+      value: number,color:color,black:"black",
+    }
+    this.arrayDataBlack.forEach((currentValue, indexx) => {
+      if (currentValue.value ==number  ){
+        const i = this.arrayDuplicate.findIndex(_element => _element.value === number);
+        if (i > -1){
+          this.arrayDuplicate[i].black = "black"; 
+          this.arrayDuplicate[i].duplicate = true; 
+        }else 
+          this.arrayDuplicate.push(element)
+      }
+    });
+  }
+
+  searchTamaulipas(number:string,color:string): void{
+    let element = {
+      value: number,color:color,tamaulipas:"tamaulipas",
+    }
+    this.arrayDataTamaulipas.forEach((currentValue, indexx) => {
+      if (currentValue.value ==number  ){
+        const i = this.arrayDuplicate.findIndex(_element => _element.value === number);
+        if (i > -1){
+          this.arrayDuplicate[i].tamaulipas = "tamaulipas"; 
+          this.arrayDuplicate[i].duplicate = true; 
+        }else 
+          this.arrayDuplicate.push(element)
+      }
+    });
+  }
+
+  
+
   updateData(){
     console.log("** update data **")
+    let match:string ="NO MATCHES";
 
     this.arrayDuplicate.forEach((currentValue, index) => {
       let indexToUpdate =-1;
       let color:string ="#0FFA12";
+      match ="MATCH";
 
       indexToUpdate = this.arrayDataChihuahua.findIndex(item => item.value === currentValue.value);
       if(indexToUpdate!=-1)
@@ -384,11 +559,22 @@ export class CompareGroupComponent implements OnInit {
       if(indexToUpdate!=-1)
         this.arrayDataGuadalajara[indexToUpdate].color = color;
 
-      this.analized = "analized completed"
-      this.analizedColor ="#08FC2D"
+      indexToUpdate = this.arrayDataCharco.findIndex(item => item.value === currentValue.value);
+        if(indexToUpdate!=-1)
+          this.arrayDataCharco[indexToUpdate].color = color;
+
+      indexToUpdate = this.arrayDataBlack.findIndex(item => item.value === currentValue.value);
+      if(indexToUpdate!=-1)
+        this.arrayDataBlack[indexToUpdate].color = color;
+
+      indexToUpdate = this.arrayDataTamaulipas.findIndex(item => item.value === currentValue.value);
+      if(indexToUpdate!=-1)
+        this.arrayDataTamaulipas[indexToUpdate].color = color;
 
     });
 
+    this.analized = "analized completed :"+match
+    this.analizedColor ="#08FC2D"
   }
 
 }

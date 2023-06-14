@@ -17,6 +17,8 @@
                 <th scope="col">guadalajara</th>
                 <th scope="col">charco</th>
                 <th scope="col">hernandez</th>
+                <th scope="col">black</th>
+                <th scope="col">tamaulipas</th>
               </tr>
             </thead>
             <tbody>
@@ -31,6 +33,8 @@
                     <td>{{rw.guadalajara}}</td>
                     <td>{{rw.charco}}</td>
                     <td>{{rw.hernandez}}</td>
+                    <td>{{rw.black}}</td>
+                    <td>{{rw.tamaulipas}}</td>
                 </ng-template>
 
               </tr>
@@ -91,7 +95,18 @@
             <button class="list_button" [ngStyle]="{'background-color':rw.color}" >{{rw.value}}</button>
         </div>
     </div>
-
+    <h1 style="background-color: rgb(234, 245, 184);margin: auto;text-align: center;">Sorteos El Black</h1>
+    <div class="bod">
+        <div class="bod-item1"  *ngFor="let rw of arrayDataBlack">
+            <button class="list_button" [ngStyle]="{'background-color':rw.color}" >{{rw.value}}</button>
+        </div>
+    </div>
+    <h1 style="background-color: rgb(234, 245, 184);margin: auto;text-align: center;">Tamaulipas</h1>
+    <div class="bod">
+        <div class="bod-item1"  *ngFor="let rw of arrayDataTamaulipas">
+            <button class="list_button" [ngStyle]="{'background-color':rw.color}" >{{rw.value}}</button>
+        </div>
+    </div>
 </div>
 
 
