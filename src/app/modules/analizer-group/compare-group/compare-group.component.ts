@@ -75,6 +75,22 @@ export class CompareGroupComponent implements OnInit {
               var result = dataNoSpace.substring(dataNoSpace.indexOf("</button>")-5, dataNoSpace.indexOf("</button>"));
 
               this.arrayDataSonora.push( { "value":result,"color":this.colorGlobal })
+            }else if(dataNoSpace.substring(5,6) == "," &&  dataNoSpace.substring(dataNoSpace.length-5,dataNoSpace.length) =="</h2>" ){ // detecta si despues del primer numero de 5 dijitos viene una coma
+              console.log("se detecto separacion por comas ") 
+              dataNoSpace = dataNoSpace.replace("</h2>", '')
+              var str_array = dataNoSpace.split(',');
+
+              for(var i = 0; i < str_array.length; i++) {
+                result = str_array[i];
+                this.arrayDataSonora.push( { "value":result,"color":this.colorGlobal })
+              }
+            }else if(dataNoSpace.substring(5,6) == ":" ){ //detecta si despues del primer numero de 5 dijitos viene en dos puntos
+
+              str_array = dataNoSpace.replaceAll(':[', ',').replaceAll(']', '').split(',');
+              for(var i = 0; i < str_array.length; i++) {
+                result = str_array[i];
+                this.arrayDataSonora.push( { "value":result,"color":this.colorGlobal })
+              }
             }
         }
         this.completeSonora=true;
@@ -93,6 +109,22 @@ export class CompareGroupComponent implements OnInit {
             if(dataNoSpace.indexOf("</button>")!= -1 && dataNoSpace.indexOf("-</button>") == -1 ){
               var result = dataNoSpace.substring(dataNoSpace.indexOf("</button>")-5, dataNoSpace.indexOf("</button>"));
               this.arrayDataChato.push( { "value":result,"color":this.colorGlobal })
+            }else if(dataNoSpace.substring(5,6) == "," &&  dataNoSpace.substring(dataNoSpace.length-5,dataNoSpace.length) =="</h2>" ){ // detecta si despues del primer numero de 5 dijitos viene una coma
+              console.log("se detecto separacion por comas ") 
+              dataNoSpace = dataNoSpace.replace("</h2>", '')
+              var str_array = dataNoSpace.split(',');
+
+              for(var i = 0; i < str_array.length; i++) {
+                result = str_array[i];
+                this.arrayDataChato.push( { "value":result,"color":this.colorGlobal })
+              }
+            }else if(dataNoSpace.substring(5,6) == ":" ){ //detecta si despues del primer numero de 5 dijitos viene en dos puntos
+
+              str_array = dataNoSpace.replaceAll(':[', ',').replaceAll(']', '').split(',');
+              for(var i = 0; i < str_array.length; i++) {
+                result = str_array[i];
+                this.arrayDataChato.push( { "value":result,"color":this.colorGlobal })
+              }
             }
 
         }
@@ -110,6 +142,22 @@ export class CompareGroupComponent implements OnInit {
             if(dataNoSpace.indexOf("</button>")!= -1 ){
               var result = dataNoSpace.substring(dataNoSpace.indexOf("</button>")-5, dataNoSpace.indexOf("</button>"));
               this.arrayDataChihuahua.push( { "value":result,"color":this.colorGlobal })
+            }else if(dataNoSpace.substring(5,6) == "," &&  dataNoSpace.substring(dataNoSpace.length-5,dataNoSpace.length) =="</h2>" ){ // detecta si despues del primer numero de 5 dijitos viene una coma
+              console.log("se detecto separacion por comas ") 
+              dataNoSpace = dataNoSpace.replace("</h2>", '')
+              var str_array = dataNoSpace.split(',');
+
+              for(var i = 0; i < str_array.length; i++) {
+                result = str_array[i];
+                this.arrayDataChihuahua.push( { "value":result,"color":this.colorGlobal })
+              }
+            }else if(dataNoSpace.substring(5,6) == ":" ){ //detecta si despues del primer numero de 5 dijitos viene en dos puntos
+
+              str_array = dataNoSpace.replaceAll(':[', ',').replaceAll(']', '').split(',');
+              for(var i = 0; i < str_array.length; i++) {
+                result = str_array[i];
+                this.arrayDataChihuahua.push( { "value":result,"color":this.colorGlobal })
+              }
             }
         }
         this.completeChihuahua=true;
@@ -125,6 +173,22 @@ export class CompareGroupComponent implements OnInit {
             if(dataNoSpace.indexOf("</button>")!= -1 && dataNoSpace.indexOf("-</button>") == -1 ){
               var result = dataNoSpace.substring(dataNoSpace.indexOf("</button>")-5, dataNoSpace.indexOf("</button>"));
               this.arrayDataSalazar.push( { "value":result,"color":this.colorGlobal })
+            }else if(dataNoSpace.substring(5,6) == "," &&  dataNoSpace.substring(dataNoSpace.length-5,dataNoSpace.length) =="</h2>" ){ // detecta si despues del primer numero de 5 dijitos viene una coma
+              console.log("se detecto separacion por comas ") 
+              dataNoSpace = dataNoSpace.replace("</h2>", '')
+              var str_array = dataNoSpace.split(',');
+
+              for(var i = 0; i < str_array.length; i++) {
+                result = str_array[i];
+                this.arrayDataSalazar.push( { "value":result,"color":this.colorGlobal })
+              }
+            }else if(dataNoSpace.substring(5,6) == ":" ){ //detecta si despues del primer numero de 5 dijitos viene en dos puntos
+
+              str_array = dataNoSpace.replaceAll(':[', ',').replaceAll(']', '').split(',');
+              for(var i = 0; i < str_array.length; i++) {
+                result = str_array[i];
+                this.arrayDataSalazar.push( { "value":result,"color":this.colorGlobal })
+              }
             }
         }
         this.completeSalazar=true;
@@ -143,6 +207,22 @@ export class CompareGroupComponent implements OnInit {
               // console.log("valid1: "+dataNoSpace.indexOf("</button>") + " valid2: "+ dataNoSpace.indexOf("-</button>") +" result:"+result)
 
               this.arrayDataIng.push( { "value":result,"color":this.colorGlobal })
+            }else if(dataNoSpace.substring(5,6) == "," &&  dataNoSpace.substring(dataNoSpace.length-5,dataNoSpace.length) =="</h2>" ){ // detecta si despues del primer numero de 5 dijitos viene una coma
+              console.log("se detecto separacion por comas ") 
+              dataNoSpace = dataNoSpace.replace("</h2>", '')
+              var str_array = dataNoSpace.split(',');
+
+              for(var i = 0; i < str_array.length; i++) {
+                result = str_array[i];
+                this.arrayDataIng.push( { "value":result,"color":this.colorGlobal })
+              }
+            }else if(dataNoSpace.substring(5,6) == ":" ){ //detecta si despues del primer numero de 5 dijitos viene en dos puntos
+
+              str_array = dataNoSpace.replaceAll(':[', ',').replaceAll(']', '').split(',');
+              for(var i = 0; i < str_array.length; i++) {
+                result = str_array[i];
+                this.arrayDataIng.push( { "value":result,"color":this.colorGlobal })
+              }
             }
         }
         this.completeIng=true;
@@ -161,6 +241,22 @@ export class CompareGroupComponent implements OnInit {
               // console.log("valid1: "+dataNoSpace.indexOf("</button>") + " valid2: "+ dataNoSpace.indexOf("-</button>") +" result:"+result)
 
               this.arrayDataGuadalajara.push( { "value":result,"color":this.colorGlobal })
+            }else if(dataNoSpace.substring(5,6) == "," &&  dataNoSpace.substring(dataNoSpace.length-5,dataNoSpace.length) =="</h2>" ){ // detecta si despues del primer numero de 5 dijitos viene una coma
+              console.log("se detecto separacion por comas ") 
+              dataNoSpace = dataNoSpace.replace("</h2>", '')
+              var str_array = dataNoSpace.split(',');
+
+              for(var i = 0; i < str_array.length; i++) {
+                result = str_array[i];
+                this.arrayDataGuadalajara.push( { "value":result,"color":this.colorGlobal })
+              }
+            }else if(dataNoSpace.substring(5,6) == ":" ){ //detecta si despues del primer numero de 5 dijitos viene en dos puntos
+
+              str_array = dataNoSpace.replaceAll(':[', ',').replaceAll(']', '').split(',');
+              for(var i = 0; i < str_array.length; i++) {
+                result = str_array[i];
+                this.arrayDataGuadalajara.push( { "value":result,"color":this.colorGlobal })
+              }
             }
         }
         this.completeGuadalajara=true;
@@ -179,6 +275,22 @@ export class CompareGroupComponent implements OnInit {
               // console.log("valid1: "+dataNoSpace.indexOf("</button>") + " valid2: "+ dataNoSpace.indexOf("-</button>") +" result:"+result)
 
               this.arrayDataCharco.push( { "value":result,"color":this.colorGlobal })
+            }else if(dataNoSpace.substring(5,6) == "," &&  dataNoSpace.substring(dataNoSpace.length-5,dataNoSpace.length) =="</h2>" ){ // detecta si despues del primer numero de 5 dijitos viene una coma
+              console.log("se detecto separacion por comas ") 
+              dataNoSpace = dataNoSpace.replace("</h2>", '')
+              var str_array = dataNoSpace.split(',');
+
+              for(var i = 0; i < str_array.length; i++) {
+                result = str_array[i];
+                this.arrayDataCharco.push( { "value":result,"color":this.colorGlobal })
+              }
+            }else if(dataNoSpace.substring(5,6) == ":" ){ //detecta si despues del primer numero de 5 dijitos viene en dos puntos
+
+              str_array = dataNoSpace.replaceAll(':[', ',').replaceAll(']', '').split(',');
+              for(var i = 0; i < str_array.length; i++) {
+                result = str_array[i];
+                this.arrayDataCharco.push( { "value":result,"color":this.colorGlobal })
+              }
             }
         }
         this.completeCharco=true;
@@ -197,6 +309,22 @@ export class CompareGroupComponent implements OnInit {
               console.log("valid1: "+dataNoSpace.indexOf("</button>") + " valid2: "+ dataNoSpace.indexOf("-</button>") +" result:"+result)
 
               this.arrayDataBlack.push( { "value":result,"color":this.colorGlobal })
+            }else if(dataNoSpace.substring(5,6) == "," &&  dataNoSpace.substring(dataNoSpace.length-5,dataNoSpace.length) =="</h2>" ){ // detecta si despues del primer numero de 5 dijitos viene una coma
+              console.log("se detecto separacion por comas ") 
+              dataNoSpace = dataNoSpace.replace("</h2>", '')
+              var str_array = dataNoSpace.split(',');
+
+              for(var i = 0; i < str_array.length; i++) {
+                result = str_array[i];
+                this.arrayDataBlack.push( { "value":result,"color":this.colorGlobal })
+              }
+            }else if(dataNoSpace.substring(5,6) == ":" ){ //detecta si despues del primer numero de 5 dijitos viene en dos puntos
+
+              str_array = dataNoSpace.replaceAll(':[', ',').replaceAll(']', '').split(',');
+              for(var i = 0; i < str_array.length; i++) {
+                result = str_array[i];
+                this.arrayDataBlack.push( { "value":result,"color":this.colorGlobal })
+              }
             }
         }
         this.completeElBlack=true;
@@ -206,16 +334,42 @@ export class CompareGroupComponent implements OnInit {
   arrayDataTamaulipas:ElementB[] =[];
   getDataTamaulipas(){
     this.http.get('assets/tamaulipasXML.txt', { responseType: 'text' as 'json'}).subscribe(data => {
+      // console.log("ver datos A1")
+      // console.log(data)
+      // console.log("ver datos A1")
+ 
         this.dataAux = data;
-          for (const line of this.dataAux.split(/[\r\n]+/)){
+          for (const line of this.dataAux.split(/[\r\n]+/)){ // Recorre linea por linea
             var dataNoSpace= line.replace(/\s/g, "");
             
+
+
             if(dataNoSpace.indexOf("</button>")!= -1 && dataNoSpace.indexOf("-</button>") == -1 ){
               var result = dataNoSpace.substring(dataNoSpace.indexOf("</button>")-5, dataNoSpace.indexOf("</button>"));
               console.log("valid1: "+dataNoSpace.indexOf("</button>") + " valid2: "+ dataNoSpace.indexOf("-</button>") +" result:"+result)
 
               this.arrayDataTamaulipas.push( { "value":result,"color":this.colorGlobal })
+
+            }else if(dataNoSpace.substring(5,6) == "," &&  dataNoSpace.substring(dataNoSpace.length-5,dataNoSpace.length) =="</h2>" ){ // detecta si despues del primer numero de 5 dijitos viene una coma
+              console.log("se detecto separacion por comas ") 
+              dataNoSpace = dataNoSpace.replace("</h2>", '')
+              var str_array = dataNoSpace.split(',');
+
+              for(var i = 0; i < str_array.length; i++) {
+                result = str_array[i];
+                this.arrayDataTamaulipas.push( { "value":result,"color":this.colorGlobal })
+              }
+            }else if(dataNoSpace.substring(5,6) == ":" ){ //detecta si despues del primer numero de 5 dijitos viene en dos puntos
+
+              str_array = dataNoSpace.replaceAll(':[', ',').replaceAll(']', '').split(',');
+              for(var i = 0; i < str_array.length; i++) {
+                result = str_array[i];
+                this.arrayDataTamaulipas.push( { "value":result,"color":this.colorGlobal })
+              }
             }
+
+
+
         }
         this.completeTamaulipas=true;
       })
