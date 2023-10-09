@@ -16,7 +16,9 @@ export class NavigationComponent  {
   activeGuadalajara:boolean =false;
   activeChato:boolean =false;
   analizedgroup:boolean =false;
+  purchaseDay:boolean =false;
 
+  
   
   constructor(private eRef: ElementRef) {
   }
@@ -46,6 +48,8 @@ export class NavigationComponent  {
       this.activeChihuahua = true;
     }else if (id=='guadalajara'){
       this.activeGuadalajara = true;
+    }else if (id=='purchaseDay'){
+      this.purchaseDay = true;
     }
   }
 

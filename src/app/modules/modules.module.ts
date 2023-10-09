@@ -23,6 +23,7 @@ import { ChihuahuaComponent } from './chihuahua/chihuahua.component';
 import { GuadalajaraComponent } from './guadalajara/guadalajara.component';
 import { ChatoComponent } from './chato/chato.component';
 import { CompareGroupComponent } from './analizer-group/compare-group/compare-group.component';
+import { PurchaseDayComponent } from './analizer-group/purchase-day/purchase-day.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { CompareGroupComponent } from './analizer-group/compare-group/compare-gr
     ChihuahuaComponent,
     GuadalajaraComponent,
     ChatoComponent,
-    CompareGroupComponent
+    CompareGroupComponent,
+    PurchaseDayComponent
     // GroupsEmployeesComponent
   ],
   imports: [

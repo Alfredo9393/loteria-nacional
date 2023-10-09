@@ -1,0 +1,42 @@
+<br>
+<br>
+<br>
+<br>
+<table>
+    <tr>
+      <th *ngFor="let value of header">
+        {{ value }}
+      </th>
+    </tr>
+    
+    <!-- <tr *ngFor="let body of dataExt">
+      <td>
+        {{ body.numero }}
+      </td>
+      <td *ngFor="let attr of body.data">
+        {{ attr.value }}
+      </td>
+    </tr> -->
+
+
+
+    <tr *ngFor="let item of dataExt">
+      <td [attr.rowspan]="item.stateSpan" *ngIf="item.stateSpan" >{{ item.index }}</td>
+      <td [attr.rowspan]="item.countySpan" *ngIf="item.countySpan">{{ item.numero }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.fechaInicio }}</td>
+      <td>{{ item.day0 }}</td>
+      <td>{{ item.day1 }}</td>
+      <td>{{ item.day2 }}</td>
+      <td>{{ item.day3 }}</td>
+      <td>{{ item.day4 }}</td>
+      <td>{{ item.day5 }}</td>
+      <td>{{ item.day6 }}</td>
+      <td>{{ item.day7 }}</td>
+      <td>{{ item.day8 }}</td>
+      <td>{{ item.day9 }}</td>
+      <td>{{ item.day10 }}</td>
+      <td>{{ item.day11 }}</td>
+      <td>{{ item.fechaFin }}</td>
+    </tr>
+</table>
