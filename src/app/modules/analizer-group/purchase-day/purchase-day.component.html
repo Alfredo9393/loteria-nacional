@@ -25,18 +25,11 @@
       <td [attr.rowspan]="item.countySpan" *ngIf="item.countySpan">{{ item.numero }}</td>
       <td>{{ item.name }}</td>
       <td>{{ item.fechaInicio }}</td>
-      <td>{{ item.day0 }}</td>
-      <td>{{ item.day1 }}</td>
-      <td>{{ item.day2 }}</td>
-      <td>{{ item.day3 }}</td>
-      <td>{{ item.day4 }}</td>
-      <td>{{ item.day5 }}</td>
-      <td>{{ item.day6 }}</td>
-      <td>{{ item.day7 }}</td>
-      <td>{{ item.day8 }}</td>
-      <td>{{ item.day9 }}</td>
-      <td>{{ item.day10 }}</td>
-      <td>{{ item.day11 }}</td>
+      <td *ngFor="let days of item.arrayDays"  >
+        <b [style.background-color]="days.active ? '#0FEB30' : ''" >  {{ days.value }} </b>
+      </td>
+
+
       <td>{{ item.fechaFin }}</td>
     </tr>
 </table>
