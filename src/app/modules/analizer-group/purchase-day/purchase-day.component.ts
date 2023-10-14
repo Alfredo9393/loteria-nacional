@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { HttpClient } from '@angular/common/http'; 
 
+
 export class ElementDt { //interface
   index: string;
   numero: number;
@@ -12,6 +13,19 @@ export class ElementDt { //interface
   datePurchase: string;
   activePurchase: boolean;
   arrayDays:ElementDay[] ;
+}
+
+export class ElementNumber { //interface
+  index: string;
+  numero: number;
+  name: string;
+  fechaInicio: string;
+  fechaFin: string;
+  premio: string;
+  numeros: string;
+  // numeros: string[];
+  winnigNumber:number;
+  activeWinnigNumber:number;
 }
 
 export class ElementDay {
@@ -27,31 +41,22 @@ export class ElementDay {
 })
 export class PurchaseDayComponent  {
 
-  // data = [
-  //   { index: '10 octubre 2023', name: 'Chato', item: 0.297 },
-  //   { index: '10 octubre 2023', name: 'Chihuahua', item: 0.04 },
-  //   { index: '10 octubre 2023', name: 'Guadalajara', item: 0.14 },
-  //   { index: '10 octubre 2023', name: 'Tamaulipas', item: 0.14 },
-  //   { index: '10 octubre 2023', name: 'Hernandez', item: 0.14 },
-  //   { index: '10 octubre 2023', name: 'Ing', item: 0.14 },
-  //   { index: '17 octubre 2023', name: 'Chato', item: 0.019 },
-  //   { index: '17 octubre 2023', name: 'Chihuahua', item: 0.0374 }, 
-  //   { index: '17 octubre 2023', name: 'Guadalajara', item: 0.037 },
-  //   { index: '17 octubre 2023', name: 'Ing', item: 0.14 }
-  // ];
+  dataAux: any;
+  header: Array<string> = ['Index', 'numero', 'nombre'];
 
   dataExt: any[] = [];
-  dataAux: any;
-
-  header: Array<string> = ['Index', 'numero', 'nombre', 'Fecha Inicio'];
-
   arrayData:ElementDt[] =[];
 
+  dataExt2: any[] = [];
+  arrayNumberPurchase:ElementNumber[] =[];
+
+
   constructor(private http: HttpClient) {
-    this.loadData();
+    this.loadDataPurchase();
+    this.loadPurchase();
   }
 
-  loadData(){
+  loadDataPurchase(){
 
 
     this.http.get('assets/purchaseDay.txt', { responseType: 'text' as 'json'}).subscribe(data => {
@@ -135,22 +140,6 @@ export class PurchaseDayComponent  {
 
   }
 
-//  activeDatePurchase(){
-//     this.arrayData.forEach( (element) => {
-//       console.log("next>>>>>",element.name); 
-
-//       for(let i = 0; i <= element.dias_transcurridos; i++) {
-//         // console.log("dias ",element['day'+i]); 
-//           if (element['day'+i] == element.datePurchase ){
-//               // console.log(" match: "+ moment(new_date).format('YYYY-MM-DD') +" == "+ moment(fechaCompra).format('YYYY-MM-DD') )
-//               console.log(" match: "+ element['day'+i] +" == "+ element.datePurchase )
-//               element.activePurchase = true
-//           }
-//       }
-
-//     });
-//  }
-
   private processData() {
     const statesSeen = {};
     const countiesSeen = {};
@@ -173,5 +162,67 @@ export class PurchaseDayComponent  {
       return { ...x, stateSpan, countySpan };
     });
   }
+
+  loadPurchase(){
+
+    this.http.get('assets/purchaseNumber.txt', { responseType: 'text' as 'json'}).subscribe(data => {
+      this.dataAux = data;
+
+      for (const line of this.dataAux.split(/[\r\n]+/)){
+
+          var dataNoSpace= line;//line.replace(/\s/g, "");
+          var str_array = dataNoSpace.split('|');
+          // console.log(str_array);
+
+          var numbers= str_array[6].replace(/\s/g, "");
+          var replace = numbers.replace('(',',').replace(')', '');
+          var list = replace.split(',');
+
+          var monthMinusOneName =  moment().subtract(1, "month").startOf("month").format('MMMM');
+          
+
+          const element: ElementNumber = new ElementNumber();
+          element.index=str_array[0];
+          element.numero=str_array[1];
+          element.name=str_array[2];
+          element.fechaInicio=str_array[3];
+          element.fechaFin=str_array[4];
+          element.premio=str_array[5];
+          element.numeros= str_array[6];
+
+          this.arrayNumberPurchase.push(element);
+
+      }
+      console.log(" ** arrayNumberPurchase **");
+      console.log(this.arrayNumberPurchase);
+
+      this.processData2();
+    })
+
+  }
+
+  private processData2() {
+    const statesSeen = {};
+    const countiesSeen = {};
+
+    this.dataExt2 = this.arrayNumberPurchase.sort((a, b) => {
+      const stateComp = a.index.localeCompare(b.index);
+      return stateComp ? stateComp : a.name.localeCompare(b.name);
+    }).map(x => {
+      const stateSpan = statesSeen[x.index] ? 0 :
+        this.arrayNumberPurchase.filter(y => y.index === x.index).length;
+
+      statesSeen[x.index] = true;
+
+      const countySpan = countiesSeen[x.index] && countiesSeen[x.index][x.name] ? 0 :
+        this.arrayNumberPurchase.filter(y => y.index === x.index && y.name === x.name).length;
+
+      countiesSeen[x.index] = countiesSeen[x.index] || {};
+      countiesSeen[x.index][x.name] = true;
+
+      return { ...x, stateSpan, countySpan };
+    });
+  }
+
 
 }

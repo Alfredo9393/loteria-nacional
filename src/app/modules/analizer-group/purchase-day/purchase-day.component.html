@@ -24,12 +24,40 @@
       <td [attr.rowspan]="item.stateSpan" *ngIf="item.stateSpan" >{{ item.index }}</td>
       <td [attr.rowspan]="item.countySpan" *ngIf="item.countySpan">{{ item.numero }}</td>
       <td>{{ item.name }}</td>
-      <td>{{ item.fechaInicio }}</td>
-      <td *ngFor="let days of item.arrayDays"  >
+      <!-- <td style="padding-right:15px" >{{ item.fechaInicio }}</td> -->
+      <td *ngFor="let days of item.arrayDays"  style="padding-right:10px" >
         <b [style.background-color]="days.active ? '#0FEB30' : ''" >  {{ days.value }} </b>
       </td>
 
 
-      <td>{{ item.fechaFin }}</td>
+      <!-- <td>{{ item.fechaFin }}</td> -->
     </tr>
+</table>
+
+<br>
+<p class="text-center">Comprados</p>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Numero</th>
+      <th scope="col">nombre</th>
+      <th scope="col">Fecha Inicio </th>
+      <th scope="col">Fecha Fin</th>
+      <th scope="col">premio</th>
+      <th scope="col">Numeros</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of dataExt2">
+      <td scope="row" [attr.rowspan]="item.stateSpan" *ngIf="item.stateSpan" >{{ item.index }}</td>
+      <!-- <td>{{ item.index }}</td> -->
+      <td>{{ item.numero }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.fechaInicio }}</td>
+      <td>{{ item.fechaFin }}</td>
+      <td>{{ item.premio }}</td>
+      <td>{{ item.numeros }}</td>
+    </tr>
+  </tbody>
 </table>
