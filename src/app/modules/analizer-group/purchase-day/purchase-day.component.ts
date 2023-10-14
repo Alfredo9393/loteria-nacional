@@ -23,6 +23,7 @@ export class ElementNumber { //interface
   fechaFin: string;
   premio: string;
   numeros: string;
+  price: number;
   // numeros: string[];
   winnigNumber:number;
   activeWinnigNumber:number;
@@ -163,6 +164,7 @@ export class PurchaseDayComponent  {
     });
   }
 
+   suma:number =0;
   loadPurchase(){
 
     this.http.get('assets/purchaseNumber.txt', { responseType: 'text' as 'json'}).subscribe(data => {
@@ -187,9 +189,11 @@ export class PurchaseDayComponent  {
           element.name=str_array[2];
           element.fechaInicio=str_array[3];
           element.fechaFin=str_array[4];
-          element.premio=str_array[5];
-          element.numeros= str_array[6];
+          element.price= str_array[5];
+          element.premio=str_array[6];
+          element.numeros= str_array[7];
 
+          this.suma= ( (+this.suma) + (+element.price));
           this.arrayNumberPurchase.push(element);
 
       }
